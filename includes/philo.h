@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 16:24:05 by jow               #+#    #+#             */
-/*   Updated: 2025/02/05 11:41:40 by jow              ###   ########.fr       */
+/*   Updated: 2025/02/06 13:26:00 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_table
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				meals;
-	int				dead;
+	int				dead_flag;
 	pthread_mutex_t	print;
 	pthread_mutex_t	dead_mutex;
 	pthread_mutex_t	meals_mutex;
