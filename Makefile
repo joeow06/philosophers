@@ -11,7 +11,7 @@
 
 # Compiler and flags
 CC			=	gcc
-CFLAGS		=	$(INCLUDES) $(DEBUG)
+CFLAGS		=	$(INCLUDES)
 TEMP		=	-Wall -Werror -Wextra
 INCLUDES	=	-I$(INC_DIR)
 DEBUG		=	-g3
@@ -28,9 +28,9 @@ SRCS_DIR		=	srcs/
 OBJS_DIR		=	bin/
 
 
-SRCS_FILES		=	srcs/main.c \
-					srcs/check_args.c \
-					srcs/utils.c
+SRCS_FILES		=	$(SRCS_DIR)main.c \
+					$(SRCS_DIR)check_args.c \
+					$(SRCS_DIR)utils.c
 
 
 OBJS_FILES		=	$(patsubst $(SRCS_DIR)%.c, $(OBJS_DIR)%.o, $(SRCS_FILES))
