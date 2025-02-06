@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 16:19:51 by jow               #+#    #+#             */
-/*   Updated: 2025/02/05 11:27:45 by jow              ###   ########.fr       */
+/*   Updated: 2025/02/06 17:58:46 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	printf("Arguments are valid\n");
-	//init_table(table, ac, av);
+	table = init_table(ac, av);
+	
 	//start_simulation(table);
 	return (0);
 }
