@@ -29,7 +29,7 @@ OBJS_DIR		=	bin/
 
 
 SRCS_FILES		=	$(SRCS_DIR)main.c \
-					$(SRCS_DIR)check_args.c \
+					$(SRCS_DIR)parser.c \
 					$(SRCS_DIR)utils.c
 
 

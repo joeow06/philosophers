@@ -6,17 +6,14 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:26:18 by jow               #+#    #+#             */
-/*   Updated: 2025/02/06 14:16:59 by jow              ###   ########.fr       */
+/*   Updated: 2025/02/27 13:22:02 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_table	*init_table(int ac, char **av)
+t_table	*init_table(int ac, char **av, t_table *table)
 {
-	t_table	*table;
-
-	table = (t_table *)malloc(sizeof(t_table));
 	if (!table)
 		print_error_str("Malloc failed");
 	table->philo_count = ft_atoi(av[1]);
@@ -27,5 +24,5 @@ t_table	*init_table(int ac, char **av)
 		table->meals = ft_atoi(av[5]);
 	else
 		table->meals = -1;
-	
+
 }

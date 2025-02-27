@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 16:19:51 by jow               #+#    #+#             */
-/*   Updated: 2025/02/19 14:09:10 by jow              ###   ########.fr       */
+/*   Updated: 2025/02/27 13:23:29 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,8 @@ int	main(int ac, char **av)
 		printf("Error: Wrong number of arguments\n");
 		return (1);
 	}
-	if (!check_valid_args(ac, av))
-	{
-		printf("Error: Invalid arguments\n");
-		return (1);
-	}
-	printf("Arguments are valid\n");
-	init_table(ac, av);
-
+	parser(ac, av, &table);
+	init_table(ac, av, &table);
 	//start_simulation(&table);
 	return (0);
 }
