@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:34:18 by jow               #+#    #+#             */
-/*   Updated: 2025/01/20 13:34:49 by jow              ###   ########.fr       */
+/*   Updated: 2025/03/13 13:48:56 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,28 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (nbr * sign);
+}
+
+void	ft_mutex(pthread_mutex_t *mutex, t_mutex_type type)
+{
+	if (type == INIT)
+	{
+		if (pthread_mutex_init(mutex, NULL) != 0)
+			print_error_str("Mutex init failed");
+	}
+	else if (type == DESTROY)
+	{
+		if (pthread_mutex_destroy(mutex) != 0)
+			print_error_str("Mutex destroy failed");
+	}
+	else if (type == LOCK)
+	{
+		if (pthread_mutex_lock(mutex) != 0)
+			print_error_str("Mutex lock failed");
+	}
+	else if (type == UNLOCK)
+	{
+		if (pthread_mutex_unlock(mutex) != 0)
+			print_error_str("Mutex unlock failed");
+	}
 }
