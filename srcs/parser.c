@@ -12,25 +12,30 @@
 
 #include "philo.h"
 
-void	parser(int ac, char **av)
+void	parser(int ac, char **av, t_table *table);
+void	parse_args(int ac, char **av, t_table *table);
+int		check_number(char *str);
+int		check_valid_args(int ac, char **av);
+
+void	parser(int ac, char **av, t_table *table)
 {
 	if (!check_valid_args(ac, av))
 		print_error_str("Invalid arguments");
-	parse_args(ac, av);
+	parse_args(ac, av, table);
 }
 
-void	parse_args(int ac, char **av)
+void	parse_args(int ac, char **av, t_table *table)
 {
 	if (!table)
-	print_error_str("Malloc failed");
-table->philo_count = ft_atoi(av[1]);
-table->time_to_die = ft_atoi(av[2]);
-table->time_to_eat = ft_atoi(av[3]);
-table->time_to_sleep = ft_atoi(av[4]);
-if (ac == 6)
-	table->meals = ft_atoi(av[5]);
-else
-	table->meals = -1;
+		print_error_str("Malloc failed");
+	table->philo_count = ft_atoi(av[1]);
+	table->time_to_die = ft_atoi(av[2]);
+	table->time_to_eat = ft_atoi(av[3]);
+	table->time_to_sleep = ft_atoi(av[4]);
+	if (ac == 6)
+		table->meals = ft_atoi(av[5]);
+	else
+		table->meals = -1;
 }
 
 int	check_number(char *str)
