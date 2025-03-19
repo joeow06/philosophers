@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:34:18 by jow               #+#    #+#             */
-/*   Updated: 2025/03/13 13:48:56 by jow              ###   ########.fr       */
+/*   Updated: 2025/03/17 20:55:35 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	ft_atoi(const char *str)
 
 void	ft_mutex(pthread_mutex_t *mutex, t_mutex_type type)
 {
+	printf("mutex: %p\n", mutex);
 	if (type == INIT)
 	{
 		if (pthread_mutex_init(mutex, NULL) != 0)
