@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 16:24:05 by jow               #+#    #+#             */
-/*   Updated: 2025/03/13 13:55:06 by jow              ###   ########.fr       */
+/*   Updated: 2025/03/19 15:41:38 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <unistd.h>
 # include <pthread.h>
 # include <sys/time.h>
+
+typedef struct s_table	t_table;
 
 typedef enum e_mutex
 {
@@ -34,7 +36,7 @@ typedef struct s_philo
 	int				left_fork;
 	int				right_fork;
 	int				meals;
-	pthread_t		ph_mtx;
+	pthread_mutex_t		ph_mtx;
 	t_table			*table;
 }					t_philo;
 
@@ -62,12 +64,15 @@ void	parser(int ac, char **av, t_table *table);
 
 /*	UTILS_C */
 int		ft_atoi(const char *str);
+void	ft_mutex(pthread_mutex_t *mutex, t_mutex_type type);
 
 /*	ERROR_C */
 void	print_error_str(char *str);
 
 /*	INIT_C */
-void init(int ac, char **av, t_table *table);
-void init_philo(t_table *table);
+void 	init(int ac, char **av, t_table *table);
+void 	init_philo(t_table *table);
+void	 assign_forks(t_philo *philo, int i);
+
 
 #endif
