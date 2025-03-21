@@ -20,14 +20,14 @@ int		check_valid_args(int ac, char **av);
 void	parser(int ac, char **av, t_table *table)
 {
 	if (!check_valid_args(ac, av))
-		print_error_str("Invalid arguments");
+		print_error_exit("Invalid arguments");
 	parse_args(ac, av, table);
 }
 
 void	parse_args(int ac, char **av, t_table *table)
 {
 	if (!table)
-		print_error_str("Malloc failed");
+		print_error_exit("Malloc failed");
 	table->philo_count = ft_atoi(av[1]);
 	table->time_to_die = ft_atoi(av[2]);
 	table->time_to_eat = ft_atoi(av[3]);
