@@ -32,7 +32,8 @@ SRCS_FILES		=	$(SRCS_DIR)main.c \
 					$(SRCS_DIR)parser.c \
 					$(SRCS_DIR)utils.c \
 					$(SRCS_DIR)error.c \
-					$(SRCS_DIR)init.c
+					$(SRCS_DIR)init.c \
+					$(SRCS_DIR)simulation.c
 
 
 
