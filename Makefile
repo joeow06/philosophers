@@ -31,11 +31,11 @@ OBJS_DIR		=	bin/
 SRCS_FILES		=	$(SRCS_DIR)main.c \
 					$(SRCS_DIR)parser.c \
 					$(SRCS_DIR)utils.c \
+					$(SRCS_DIR)pthread_utils.c \
 					$(SRCS_DIR)error.c \
 					$(SRCS_DIR)init.c \
-					$(SRCS_DIR)simulation.c
-
-
+					$(SRCS_DIR)simulation.c \
+					$(SRCS_DIR)set_get.c
 
 OBJS_FILES		=	$(patsubst $(SRCS_DIR)%.c, $(OBJS_DIR)%.o, $(SRCS_FILES))
 
