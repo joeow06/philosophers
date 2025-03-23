@@ -6,15 +6,15 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:34:18 by jow               #+#    #+#             */
-/*   Updated: 2025/03/21 17:21:43 by jow              ###   ########.fr       */
+/*   Updated: 2025/03/24 00:25:17 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int			ft_atoi(const char *str);
-void		ft_mutex(pthread_mutex_t *mutex, t_mutex_type type);
-time_t		get_time_in_ms(void);
+int		ft_atoi(const char *str);
+time_t	get_time_in_ms(void);
+void	ft_wait(time_t time, t_table *table);
 
 
 int	ft_atoi(const char *str)
@@ -43,34 +43,23 @@ int	ft_atoi(const char *str)
 	return (nbr * sign);
 }
 
-void	ft_mutex(pthread_mutex_t *mutex, t_mutex_type type)
-{
-	if (type == INIT)
-	{
-		if (pthread_mutex_init(mutex, NULL) != 0)
-			print_error_exit("Mutex init failed");
-	}
-	else if (type == DESTROY)
-	{
-		if (pthread_mutex_destroy(mutex) != 0)
-			print_error_exit("Mutex destroy failed");
-	}
-	else if (type == LOCK)
-	{
-		if (pthread_mutex_lock(mutex) != 0)
-			print_error_exit("Mutex lock failed");
-	}
-	else if (type == UNLOCK)
-	{
-		if (pthread_mutex_unlock(mutex) != 0)
-			print_error_exit("Mutex unlock failed");
-	}
-}
-
 time_t	get_time_in_ms(void)
 {
 	struct timeval	time;
 
 	gettimeofday(&time, NULL);
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
+}
+
+void	ft_wait(time_t time, t_table *table)
+{
+	time_t	time_to_wake;
+
+	time_to_wake = get_time_in_ms() + time;
+	while (get_time_in_ms() < time_to_wake)
+	{
+		if (get_bool(&table->read_mutex, &table->is_exit))
+			break ;
+		usleep(100);
+	}
 }
