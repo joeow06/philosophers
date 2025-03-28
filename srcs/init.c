@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:26:18 by jow               #+#    #+#             */
-/*   Updated: 2025/03/21 17:07:12 by jow              ###   ########.fr       */
+/*   Updated: 2025/03/28 14:47:06 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	init_philo(t_table *table)
 	{
 		philo = table->philo + i;
 		philo->id = i + 1;
-		philo->meals = 0;
+		philo->meals = table->meals;
 		philo->table = table;
 		ft_mutex(&philo->ph_mtx, INIT);
 		assign_forks(philo, table->forks, i);
@@ -65,6 +65,9 @@ void	init(int ac, char **av, t_table *table)
 		table->meals = ft_atoi(av[5]);
 	else
 		table->meals = -1;
+	table->is_exit = false;
+	ft_mutex(&table->read_mutex, INIT);
+	ft_mutex(&table->write_mutex, INIT);
 	init_forks(table);
 	init_philo(table);
 }
