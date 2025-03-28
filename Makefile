@@ -11,12 +11,13 @@
 
 # Compiler and flags
 CC			=	gcc
-CFLAGS		=	$(INCLUDES)
-TEMP		=	-Wall -Werror -Wextra
+CFLAGS		=	$(INCLUDES) $(FSAN_THREAD)
+TEMP		=	-Wall -Werror -Wextra -pthread
 INCLUDES	=	-I$(INC_DIR)
 DEBUG		=	-g3
 FSAN_ADD	=	-fsanitize=address
 FSAN_MEM	=	-fsanitize=memory
+FSAN_THREAD	=	-fsanitize=thread
 RM			=	rm -rf
 
 # Output file name
@@ -35,7 +36,9 @@ SRCS_FILES		=	$(SRCS_DIR)main.c \
 					$(SRCS_DIR)error.c \
 					$(SRCS_DIR)init.c \
 					$(SRCS_DIR)simulation.c \
-					$(SRCS_DIR)set_get.c
+					$(SRCS_DIR)set_get.c \
+					$(SRCS_DIR)print.c \
+					$(SRCS_DIR)monitor.c
 
 OBJS_FILES		=	$(patsubst $(SRCS_DIR)%.c, $(OBJS_DIR)%.o, $(SRCS_FILES))
 
