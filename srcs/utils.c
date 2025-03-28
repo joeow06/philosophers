@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:34:18 by jow               #+#    #+#             */
-/*   Updated: 2025/03/24 00:25:17 by jow              ###   ########.fr       */
+/*   Updated: 2025/03/26 21:54:13 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,14 @@
 int		ft_atoi(const char *str);
 time_t	get_time_in_ms(void);
 void	ft_wait(time_t time, t_table *table);
+void	active_philo(t_table *table);
 
+void	active_philo(t_table *table)
+{
+	ft_mutex(&table->write_mutex, LOCK);
+	table->active_philo++;
+	ft_mutex(&table->write_mutex, UNLOCK);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -53,10 +60,10 @@ time_t	get_time_in_ms(void)
 
 void	ft_wait(time_t time, t_table *table)
 {
-	time_t	time_to_wake;
+	time_t	time_to_finish;
 
-	time_to_wake = get_time_in_ms() + time;
-	while (get_time_in_ms() < time_to_wake)
+	time_to_finish = get_time_in_ms() + time;
+	while (get_time_in_ms() < time_to_finish)
 	{
 		if (get_bool(&table->read_mutex, &table->is_exit))
 			break ;
