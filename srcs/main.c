@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 16:19:51 by jow               #+#    #+#             */
-/*   Updated: 2025/03/21 17:28:56 by jow              ###   ########.fr       */
+/*   Updated: 2025/03/25 18:35:19 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ void	print_data(t_table *table)
 		printf("Philosopher %d:\n", table->philo[i].id);
 		printf("  Meals: %d\n", table->philo[i].meals);
 		printf("  Mutex Address: %p\n", (void *)&table->philo[i].ph_mtx);
-		printf("  Left Fork Address:  %p (Fork ID: %d)\n",
-			(void *)philo->left_fork, philo->left_fork->fork_id);
-		printf("  Right Fork Address: %p (Fork ID: %d)\n\n",
-			(void *)philo->right_fork, philo->right_fork->fork_id);
+		printf("  Left Fork Mtx Address:  %p (Fork ID: %d)\n",
+			(void *)&philo->left_fork->fork_mtx, philo->left_fork->fork_id);
+		printf("  Right Fork Mtx Address: %p (Fork ID: %d)\n\n",
+			(void *)&philo->right_fork->fork_mtx, philo->right_fork->fork_id);
 		i++;
 	}
 }
@@ -67,9 +67,9 @@ int	main(int ac, char **av)
 	}
 	parser(ac, av, &table);
 	init(ac, av, &table);
+	printf("Simulation started\n");
 	//print_fork_assignments(&table);
 	print_data(&table);
 	simulation(&table);
-	printf("start_time: %ld\n", table.start_time);
 	return (0);
 }
