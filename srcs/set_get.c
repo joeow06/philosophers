@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 23:16:14 by jow               #+#    #+#             */
-/*   Updated: 2025/03/23 23:37:07 by jow              ###   ########.fr       */
+/*   Updated: 2025/03/24 00:41:49 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,16 @@ bool	get_bool(pthread_mutex_t *mutex, bool *value)
 	return (ret);
 }
 
-void	set_long(pthread_mutex_t *mutex, long *value, long new_value)
+void	set_time(pthread_mutex_t *mutex, time_t *value, time_t new_value)
 {
 	ft_mutex(mutex, LOCK);
 	*value = new_value;
 	ft_mutex(mutex, UNLOCK);
 }
 
-long	get_long(pthread_mutex_t *mutex, long *value)
+long	get_time(pthread_mutex_t *mutex, time_t *value)
 {
-	long	ret;
+	time_t	ret;
 
 	ft_mutex(mutex, LOCK);
 	ret = *value;
