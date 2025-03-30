@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 16:24:05 by jow               #+#    #+#             */
-/*   Updated: 2025/03/28 15:04:30 by jow              ###   ########.fr       */
+/*   Updated: 2025/03/30 14:06:13 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,9 @@ void	ft_mutex(pthread_mutex_t *mutex, t_mtx_type type);
 void	ft_thread(pthread_t *thread, void *(*func)(void *), void *arg, \
 		t_thread_type type);
 
-/*	ERROR_C */
+/*	ERROR_EXIT_C */
 void	print_error_exit(char *str);
+void	free_table(t_table *table);
 
 /*	INIT_C */
 void	init(int ac, char **av, t_table *table);
