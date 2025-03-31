@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:26:18 by jow               #+#    #+#             */
-/*   Updated: 2025/03/28 14:47:06 by jow              ###   ########.fr       */
+/*   Updated: 2025/03/30 15:48:46 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	assign_forks(t_philo *philo, t_fork *forks, int i)
 {
-	philo->right_fork = &forks[i];
-	philo->left_fork = &forks[(i + 1) % philo->table->philo_count];
+	philo->left_fork = &forks[i];
+	philo->right_fork = &forks[(i + 1) % philo->table->philo_count];
 }
 
 static void	init_forks(t_table *table)
