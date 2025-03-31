@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 20:12:02 by jow               #+#    #+#             */
-/*   Updated: 2025/03/28 15:10:26 by jow              ###   ########.fr       */
+/*   Updated: 2025/03/31 16:53:00 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,20 @@ static bool	all_philo_full(t_table *table)
 	return (value);
 }
 
+/*
+Let's say the philo last meal time was 0ms, and time to die is 100ms,
+if current time is 50ms, philo is not dead cuz 0 + 100 < 50 is false
+if current time is 150ms, philo is dead cuz 0 + 100 < 150 is true
+*/
 static bool	is_philo_dead(t_philo *philo)
 {
 	time_t	last_meal;
 
-	set_bool(&philo->ph_mtx, &philo->table->is_dead, false);
 	last_meal = get_time(&philo->ph_mtx, &philo->last_meal_time);
 	if (last_meal + philo->table->time_to_die < get_time_in_ms())
 		set_bool(&philo->ph_mtx, &philo->table->is_dead, true);
+	else
+		set_bool(&philo->ph_mtx, &philo->table->is_dead, false);
 	return (get_bool(&philo->ph_mtx, &philo->table->is_dead));
 }
 
@@ -68,7 +74,7 @@ void	*monitoring(void *data)
 	table = (t_table *)data;
 	while (wait_active_philo(table) == false)
 		usleep(100);
-	while (get_bool(&table->read_mutex, &table->is_exit) == false)
+	while (!get_bool(&table->read_mutex, &table->is_exit))
 	{
 		i = 0;
 		while (i < table->philo_count && \
