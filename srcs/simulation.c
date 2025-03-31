@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 17:16:24 by jow               #+#    #+#             */
-/*   Updated: 2025/03/30 14:27:34 by jow              ###   ########.fr       */
+/*   Updated: 2025/03/31 17:02:56 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	sleep_think_routine(t_philo *philo)
 
 static void	eat_routine(t_philo *philo)
 {
-	if (philo->left_fork->fork_id > philo->right_fork->fork_id)
+	if (philo->left_fork->fork_id < philo->right_fork->fork_id)
 	{
 		ft_mutex(&philo->left_fork->fork_mtx, LOCK);
 		print_status(philo, GOT_LEFT_FORK);
