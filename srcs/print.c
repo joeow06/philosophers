@@ -15,6 +15,11 @@
 void	print_status(t_philo *philo, t_status status)
 {
 	ft_mutex(&philo->table->write_mutex, LOCK);
+	if (get_bool(&philo->table->read_mutex, &philo->table->is_exit) == true)
+	{
+		ft_mutex(&philo->table->write_mutex, UNLOCK);
+		return ;
+	}
 	if (status == GOT_LEFT_FORK || status == GOT_RIGHT_FORK)
 		printf(MAGEN "%ld" "\t" CYAN "%d" RESET "  has taken a fork\n", \
 			get_time_in_ms() - philo->table->start_time, philo->id);
