@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 17:53:49 by jow               #+#    #+#             */
-/*   Updated: 2025/03/27 13:36:36 by jow              ###   ########.fr       */
+/*   Updated: 2025/04/01 23:31:41 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ void	ft_mutex(pthread_mutex_t *mutex, t_mtx_type type)
 void	ft_thread(pthread_t *thread, void *(*func)(void *), void *arg, \
 	t_thread_type type)
 {
-	if (type == INIT)
+	if (type == CREATE)
 	{
 		if (pthread_create(thread, NULL, func, arg) != 0)
-			print_error_exit("Thread init failed");
+			print_error_exit("Thread create failed");
 	}
 	else if (type == JOIN)
 	{
