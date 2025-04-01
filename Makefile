@@ -11,7 +11,7 @@
 
 # Compiler and flags
 CC			=	gcc
-CFLAGS		=	$(INCLUDES) $(TEMP)
+CFLAGS		=	$(TEMP) $(INCLUDES)
 TEMP		=	-Wall -Werror -Wextra -pthread
 INCLUDES	=	-I$(INC_DIR)
 DEBUG		=	-g3
