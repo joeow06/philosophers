@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 16:24:05 by jow               #+#    #+#             */
-/*   Updated: 2025/03/30 14:06:13 by jow              ###   ########.fr       */
+/*   Updated: 2025/04/02 00:05:13 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,13 +123,12 @@ void	simulation(t_table *table);
 void	set_bool(pthread_mutex_t *mutex, bool *value, bool new_value);
 bool	get_bool(pthread_mutex_t *mutex, bool *value);
 void	set_time(pthread_mutex_t *mutex, time_t *value, time_t new_value);
-long	get_time(pthread_mutex_t *mutex, time_t *value);
+time_t	get_time(pthread_mutex_t *mutex, time_t *value);
 
 /*	PRINT_C */
 void	print_status(t_philo *philo, t_status status);
 
 /*	MONITOR_C */
 void	*monitoring(void *data);
-
 
 #endif
