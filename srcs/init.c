@@ -6,11 +6,16 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:26:18 by jow               #+#    #+#             */
-/*   Updated: 2025/04/01 23:57:04 by jow              ###   ########.fr       */
+/*   Updated: 2025/04/02 00:06:10 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static void	assign_forks(t_philo *philo, t_fork *forks, int i);
+static void	init_forks(t_table *table);
+static void	init_philo(t_table *table);
+void		init(int ac, char **av, t_table *table);
 
 static void	assign_forks(t_philo *philo, t_fork *forks, int i)
 {
