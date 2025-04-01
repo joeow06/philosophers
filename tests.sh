@@ -19,3 +19,14 @@ echo "----------------------------------"
 
 echo "no philo should die\n"
 ./philo 4 410 200 200 10
+
+echo "The philosopher should not eat and should die."
+./philo 1 800 200 200
+echo "--------------------------------"
+
+echo "No philosopher should die."
+./philo 4 410 200 200 5
+echo "--------------------------------"
+
+echo "No philosopher should die."
+./philo 5 800 200 200 5
