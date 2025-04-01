@@ -6,13 +6,11 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 16:19:51 by jow               #+#    #+#             */
-/*   Updated: 2025/03/31 17:06:30 by jow              ###   ########.fr       */
+/*   Updated: 2025/04/02 00:02:30 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	print_data(t_table *table);
 
 int	main(int ac, char **av)
 {
