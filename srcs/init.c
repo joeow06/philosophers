@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:26:18 by jow               #+#    #+#             */
-/*   Updated: 2025/03/30 15:48:46 by jow              ###   ########.fr       */
+/*   Updated: 2025/04/01 23:57:04 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	init(int ac, char **av, t_table *table)
 	else
 		table->meals = -1;
 	table->is_exit = false;
+	table->active_philo = 0;
 	ft_mutex(&table->read_mutex, INIT);
 	ft_mutex(&table->write_mutex, INIT);
 	init_forks(table);
