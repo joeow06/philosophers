@@ -10,7 +10,7 @@
 #------------------------------------------------------------------------------#
 
 # Compiler and flags
-CC			=	gcc
+CC			=	cc
 CFLAGS		=	$(TEMP) $(INCLUDES)
 TEMP		=	-Wall -Werror -Wextra -pthread
 INCLUDES	=	-I$(INC_DIR)
