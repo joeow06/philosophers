@@ -6,7 +6,7 @@
 /*   By: jow <jow@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 20:12:02 by jow               #+#    #+#             */
-/*   Updated: 2025/04/01 22:46:09 by jow              ###   ########.fr       */
+/*   Updated: 2025/04/02 14:30:23 by jow              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static bool	is_philo_dead(t_philo *philo)
 	else
 		set_bool(&philo->table->read_mutex, &philo->table->is_dead, false);
 	ft_mutex(&philo->ph_mtx, UNLOCK);
-	return (get_bool(&philo->ph_mtx, &philo->table->is_dead));
+	return (get_bool(&philo->table->read_mutex, &philo->table->is_dead));
 }
 
 static bool	wait_active_philo(t_table *table)
